@@ -30,7 +30,7 @@ if [ "$1" = "migrate" ];then
     provisioner
     echo "Forcing DB migration..."
     migrate
-    echo "Migration finished.
+    echo "Migration finished."
 fi
 
 exec "$@"
