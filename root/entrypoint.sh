@@ -16,6 +16,9 @@ migrate () {
 if [ "$1" = "wallabag" ];then
     provisioner
     echo "Checking if DB migrations are needed..."
+    cd /var/www/wallabag/
+    exec su -c "bin/console doctrine:migrations:migrate --env=prod --no-interaction" -s /bin/sh nobody
+    cd -
     exec s6-svscan /etc/s6/
 fi
 
